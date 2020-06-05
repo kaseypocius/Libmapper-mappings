@@ -10,9 +10,9 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 399.0, 119.0, 208.0, 53.0 ],
+		"rect" : [ 399.0, 119.0, 1141.0, 725.0 ],
 		"bglocked" : 0,
-		"openinpresentation" : 0,
+		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
 		"default_fontface" : 0,
 		"default_fontname" : "Arial",
@@ -38,6 +38,18 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "int" ],
+					"patching_rect" : [ 68.0, 267.0, 29.5, 22.0 ],
+					"text" : "+ 1"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-172",
 					"items" : [ "MIDI", "CHANNEL", 1, ",", "MIDI", "CHANNEL", 2, ",", "MIDI", "CHANNEL", 3, ",", "MIDI", "CHANNEL", 4, ",", "MIDI", "CHANNEL", 5, ",", "MIDI", "CHANNEL", 6, ",", "MIDI", "CHANNEL", 7, ",", "MIDI", "CHANNEL", 8, ",", "MIDI", "CHANNEL", 9, ",", "MIDI", "CHANNEL", 10, ",", "MIDI", "CHANNEL", 11, ",", "MIDI", "CHANNEL", 12, ",", "MIDI", "CHANNEL", 13, ",", "MIDI", "CHANNEL", 14, ",", "MIDI", "CHANNEL", 15, ",", "MIDI", "CHANNEL", 16 ],
@@ -7726,7 +7738,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-1", 6 ],
+					"destination" : [ "obj-5", 0 ],
 					"source" : [ "obj-172", 0 ]
 				}
 
@@ -7749,6 +7761,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-4", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-1", 6 ],
+					"source" : [ "obj-5", 0 ]
 				}
 
 			}
