@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 726.0, 378.0, 316.0, 60.0 ],
+		"rect" : [ 3123.0, 82.0, 319.0, 74.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -40,13 +40,37 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-10",
-					"maxclass" : "slider",
+					"id" : "obj-11",
+					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"parameter_enable" : 0,
-					"patching_rect" : [ 353.0, 233.0, 20.0, 140.0 ]
+					"outlettype" : [ "list" ],
+					"patching_rect" : [ 5.0, 189.0, 230.0, 22.0 ],
+					"text" : "map.in MIDI/Velocity i @min 0 @max 127"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "list" ],
+					"patching_rect" : [ 5.0, 160.0, 211.0, 22.0 ],
+					"text" : "map.in MID/Note i @min 0 @max 127"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-6",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "list" ],
+					"patching_rect" : [ 565.0, 43.0, 185.0, 22.0 ],
+					"text" : "map.in MIDI/makenote/Duration f"
 				}
 
 			}
@@ -84,7 +108,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 68.0, 267.0, 29.5, 22.0 ],
+					"patching_rect" : [ 68.0, 355.0, 29.5, 22.0 ],
 					"text" : "+ 1"
 				}
 
@@ -123,8 +147,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "list" ],
-					"patching_rect" : [ 53.0, 90.0, 230.0, 22.0 ],
-					"text" : "map.in MIDI/Velocity i @min 0 @max 127"
+					"patching_rect" : [ 12.0, 66.0, 286.0, 22.0 ],
+					"text" : "map.in MIDI/makenote/Velocity i @min 0 @max 127"
 				}
 
 			}
@@ -135,8 +159,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "list" ],
-					"patching_rect" : [ 53.0, 61.0, 214.0, 22.0 ],
-					"text" : "map.in MIDI/Note i @min 0 @max 127"
+					"patching_rect" : [ 12.0, 37.0, 270.0, 22.0 ],
+					"text" : "map.in MIDI/makenote/Note i @min 0 @max 127"
 				}
 
 			}
@@ -7686,7 +7710,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 5.0, 194.0, 46.0, 22.0 ],
+					"patching_rect" : [ 5.0, 282.0, 46.0, 22.0 ],
 					"text" : "pack i i"
 				}
 
@@ -7698,7 +7722,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 2,
 					"outlettype" : [ "float", "float" ],
-					"patching_rect" : [ 5.0, 153.0, 108.0, 22.0 ],
+					"patching_rect" : [ 5.0, 241.0, 108.0, 22.0 ],
 					"text" : "makenote 100 100"
 				}
 
@@ -7709,7 +7733,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 5.0, 329.0, 119.0, 22.0 ],
+					"patching_rect" : [ 5.0, 417.0, 119.0, 22.0 ],
 					"text" : "midiout \"from Max 1\""
 				}
 
@@ -7721,7 +7745,7 @@
 					"numinlets" : 7,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "" ],
-					"patching_rect" : [ 5.0, 291.0, 82.0, 22.0 ],
+					"patching_rect" : [ 5.0, 379.0, 82.0, 22.0 ],
 					"text" : "midiformat"
 				}
 
@@ -7731,6 +7755,20 @@
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 1 ],
+					"source" : [ "obj-11", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"source" : [ "obj-12", 0 ]
 				}
 
 			}
@@ -7785,16 +7823,7 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-10", 0 ],
-					"order" : 0,
-					"source" : [ "obj-170", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-3", 1 ],
-					"order" : 1,
 					"source" : [ "obj-170", 0 ]
 				}
 
@@ -7838,6 +7867,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-1", 6 ],
 					"source" : [ "obj-5", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-6", 0 ]
 				}
 
 			}
